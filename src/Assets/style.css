@@ -1,0 +1,47 @@
+.bannerFondo {
+  background-image: url("../Assets/Coffee2.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Commentinput {
+  font-size: 1.2rem;
+  border: 3px solid transparent;
+  border-right: none;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 1px;
+}
+.Commentedit {
+  font-size: 1.2rem;
+  border: 3px solid transparent;
+  border-right: none;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 1px;
+  max-width: 50%;
+}
+.Commentinput,
+.Commentedit:focus {
+  outline: 0;
+}
+.CommentButton {
+  font-size: 1.2rem;
+  border: 3px solid transparent;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  padding: 1px;
+}
+.CommentButton:focus {
+  outline: 0;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropdown-menu {
+  right: 0.1rem;
+}
