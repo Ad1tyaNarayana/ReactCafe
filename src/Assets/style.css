@@ -45,3 +45,6 @@
 .dropdown-menu {
   right: 0.1rem;
 }
+.blur {
+  backdrop-filter: blur(1px);
+}

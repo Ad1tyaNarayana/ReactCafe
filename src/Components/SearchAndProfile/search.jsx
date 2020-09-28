@@ -52,7 +52,7 @@ class Search extends Component {
               return (
                 <Link
                   key={user._id}
-                  className="rounded-full m-4 h-24 w-24 flex items-center justify-center bg-purple-100 shadow-lg"
+                  className="rounded-full m-4 h-32 w-32 flex items-center justify-center bg-purple-100 shadow-lg"
                   to={`/user/${user._id}`}
                 >
                   <p className="text-gray-900">{user.username}</p>
@@ -133,7 +133,7 @@ class Search extends Component {
                   <input
                     type="search"
                     onChange={this.handleChange}
-                    className="py-3 pr-1 text-sm text-white bg-gray-900 rounded-md pl-10 focus:outline-none focus:bg-gray-300 focus:text-gray-900"
+                    className="py-3 pr-1 text-sm text-white bg-gray-900 rounded-full pl-10 focus:outline-none focus:bg-gray-300 focus:text-gray-900"
                     placeholder="Search"
                     autoComplete="off"
                   />
