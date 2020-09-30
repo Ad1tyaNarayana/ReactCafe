@@ -69,6 +69,7 @@ export default class Cafe extends Component {
         if (response.data === "No Token") {
           window.location.href = "/login";
         }
+        window.location.reload();
       });
   };
 

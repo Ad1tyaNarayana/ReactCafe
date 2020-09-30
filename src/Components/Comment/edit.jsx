@@ -90,18 +90,18 @@ export default class Cafe extends Component {
           <div className="w-full max-w-xs">
             <form
               action="/"
-              className="bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+              className="bg-transparent blur shadow-lg rounded px-8 pt-6 pb-8 mb-4"
               onSubmit={this.handlesubmit}
             >
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-100 text-md font-bold mb-2"
                   htmlFor="name"
                 >
                   Comment
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
                   id="comment"
                   type="text"
                   value={this.state.comment}
@@ -111,7 +111,7 @@ export default class Cafe extends Component {
               </div>
               <div className="flex items-center justify-between">
                 <button
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
                   type="submit"
                 >
                   Edit Comment

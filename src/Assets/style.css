@@ -9,7 +9,7 @@
   font-size: 1.2rem;
   border: 3px solid transparent;
   border-right: none;
-  border-radius: 5px;
+  border-radius: 50px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   padding: 1px;
@@ -31,7 +31,7 @@
 .CommentButton {
   font-size: 1.2rem;
   border: 3px solid transparent;
-  border-radius: 5px;
+  border-radius: 50px;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   padding: 1px;
