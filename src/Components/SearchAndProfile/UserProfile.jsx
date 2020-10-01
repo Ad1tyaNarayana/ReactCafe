@@ -75,29 +75,64 @@ class UserProfile extends Component {
   }
 
   render() {
-    const Cafes = this.state.Posts.map((cafe) => {
-      if (cafe.author.id === this.props.match.params.profile) {
+    let postCount = 0;
+    const Posts = this.state.Posts.map((post) => {
+      if (post.author.id === this.props.match.params.profile) {
+        postCount++;
         return (
-          <Link key={cafe._id} to={`/post/${cafe._id}`}>
-            <div className="block bg-transparent-700 mt-5 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+          <Link key={post._id} to={`/post/${post._id}`}>
+            <div className="block bg-transparent-700 mt-5 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1">
               <div className="max-w-xs w-full bg-blue-600">
                 <div className="flex items-center justify-center overflow-hidden">
                   <img
-                    src={cafe.image}
+                    src={post.image}
                     style={{ maxHeight: "35vh", width: "100%" }}
                     alt="post"
                   />
                 </div>
                 <div className="py-2 px-3 text-center text-sm">
-                  <h3 className="text-white text-lg">{cafe.name}</h3>
+                  <h3 className="text-white text-lg">{post.name}</h3>
                 </div>
               </div>
             </div>
           </Link>
         );
-      } else {
-        return null;
-      }
+      } else return null;
+    });
+
+    const Liked = this.state.Posts.map((post) => {
+      if (
+        window.sessionStorage.getItem("loggedIn") === "True" &&
+        this.props.match.params.profile ===
+          window.sessionStorage.getItem("userId")
+      ) {
+        let likeCheck = 0;
+        post.likes.forEach((like) => {
+          if (this.props.match.params.profile === like.id) {
+            likeCheck++;
+          }
+        });
+        if (likeCheck > 0) {
+          return (
+            <Link key={post._id} to={`/post/${post._id}`}>
+              <div className="block bg-transparent-700 mt-5 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1">
+                <div className="max-w-xs w-full bg-blue-600">
+                  <div className="flex items-center justify-center overflow-hidden">
+                    <img
+                      src={post.image}
+                      style={{ maxHeight: "35vh", width: "100%" }}
+                      alt="post"
+                    />
+                  </div>
+                  <div className="py-2 px-3 text-center text-sm">
+                    <h3 className="text-white text-lg">{post.name}</h3>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          );
+        } else return null;
+      } else return null;
     });
 
     const alert = () => {
@@ -154,6 +189,21 @@ class UserProfile extends Component {
       }
     };
 
+    const UserCheckLiked = () => {
+      if (
+        this.props.match.params.profile ===
+        window.sessionStorage.getItem("userId")
+      ) {
+        return <h5 className="text-3xl text-center">Liked Posts</h5>;
+      } else return null;
+    };
+
+    const NoPostCheck = () => {
+      if (postCount === 0) {
+        return <p className="text-center text-gray-500">No Posts Yet</p>;
+      } else return null;
+    };
+
     return (
       <div style={{ marginTop: "5rem" }}>
         <div className="flex items-center justify-center">
@@ -162,19 +212,38 @@ class UserProfile extends Component {
             className="bg-white shadow-xl rounded-lg font-bold"
           >
             {alert()}
-            <div className="flex p-5 items-center text-center border-b border-gray-300 text-gray-700">
+            <div className="flex flex-col p-5 items-center text-center border-gray-300 text-gray-700">
               <h5 className="text-5xl text-center w-full">
                 {this.state.user.username}
               </h5>
               {checkFollow()}
             </div>
-            <div className="p-10 border-t border-gray-300 text-gray-700">
-              <h5 className="text-3xl text-center">Posts</h5>
-              <div className="flex justify-evenly">
+            <div
+              style={{ maxHeight: "60vh" }}
+              className="p-4 overflow-y-auto text-gray-700"
+            >
+              {UserCheckLiked()}
+              <div
+                style={{ maxHeight: "60vh" }}
+                className="flex justify-evenly overflow-y-auto"
+              >
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {Cafes}
+                  {Liked}
                 </div>
               </div>
+            </div>
+            <div className="p-10 text-gray-700">
+              <h5 className="text-3xl text-center">Posts</h5>
+              <div
+                style={{ maxHeight: "60vh" }}
+                className="flex justify-evenly overflow-y-auto"
+              >
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {Posts}
+                </div>
+              </div>
+              <br />
+              {NoPostCheck()}
             </div>
             <a rel="noreferrer" href="https://adityanarayana.netlify.app/">
               <p className="text-center mb-1 text-gray-500 text-xs">
