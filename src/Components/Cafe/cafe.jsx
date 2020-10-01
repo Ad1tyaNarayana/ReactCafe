@@ -149,13 +149,6 @@ export default class Cafe extends Component {
                 <p className="text-gray-700">{data.author.username}</p>
               </Link>
               <div className="flex p-2 border-t border-gray-300 text-gray-700">
-                <button
-                  id={data._id}
-                  onClick={this.deleteComment}
-                  className="ml-2 mr-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded"
-                >
-                  Delete
-                </button>
                 <Link
                   className="ml-2 mr-2 bg-transparent hover:bg-blue-500
                 text-blue-700 font-semibold hover:text-white py-1 px-4 border
@@ -164,6 +157,13 @@ export default class Cafe extends Component {
                 >
                   Edit
                 </Link>
+                <button
+                  id={data._id}
+                  onClick={this.deleteComment}
+                  className="ml-2 mr-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded"
+                >
+                  Delete
+                </button>
               </div>
             </div>
           );
@@ -219,8 +219,7 @@ export default class Cafe extends Component {
             return (
               <button
                 onClick={this.likePost}
-                style={{ maxHeight: "2rem" }}
-                className="inline bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded"
+                className="ml-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded"
               >
                 UnLike
               </button>
@@ -229,8 +228,7 @@ export default class Cafe extends Component {
             return (
               <button
                 onClick={this.likePost}
-                style={{ maxHeight: "2rem" }}
-                className="inline bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded"
+                className="ml-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded"
               >
                 Like
               </button>
