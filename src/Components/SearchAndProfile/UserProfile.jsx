@@ -27,6 +27,8 @@ class UserProfile extends Component {
           user: {
             id: response.data._id,
             username: response.data.username,
+            following: response.data.following,
+            followers: response.data.followers,
           },
         });
       });
@@ -204,11 +206,30 @@ class UserProfile extends Component {
       } else return null;
     };
 
+    const followers = () => {
+      let followerCount = 0;
+      try {
+        this.state.user.followers.forEach((follower) => {
+          followerCount++;
+        });
+      } catch (err) {}
+      return followerCount;
+    };
+    const following = () => {
+      let followingCount = 0;
+      try {
+        this.state.user.following.forEach((following) => {
+          followingCount++;
+        });
+      } catch (err) {}
+      return followingCount;
+    };
+
     return (
       <div style={{ marginTop: "5rem" }}>
         <div className="flex items-center justify-center">
           <div
-            style={{ minWidth: "50vw" }}
+            style={{ minWidth: "80vw" }}
             className="bg-white shadow-xl rounded-lg font-bold"
           >
             {alert()}
@@ -217,6 +238,14 @@ class UserProfile extends Component {
                 {this.state.user.username}
               </h5>
               {checkFollow()}
+            </div>
+            <div className="flex p-4 border-t border-b justify-around border-gray-300 text-gray-700">
+              <p className="ml-1 mr-1 text-purple-800 text-xl font-semibold py-1">
+                {followers()} Followers
+              </p>
+              <p className="ml-1 mr-1 text-blue-700 text-xl font-semibold py-1">
+                {following()} Following
+              </p>
             </div>
             <div
               style={{ maxHeight: "60vh" }}

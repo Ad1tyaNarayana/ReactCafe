@@ -105,7 +105,7 @@ class Search extends Component {
       <div style={{ marginTop: "5rem" }}>
         <div className="flex items-center justify-center">
           <div
-            style={{ minWidth: "50vw" }}
+            style={{ minWidth: "80vw" }}
             className="bg-white shadow-xl rounded-lg font-bold p-10"
           >
             <h5 className="text-5xl text-gray-700 text-center">Search</h5>

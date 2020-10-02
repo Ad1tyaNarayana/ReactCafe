@@ -280,7 +280,7 @@ export default class Cafe extends Component {
                 </Link>
               </div>
               <div className="flex p-4 border-t border-gray-300 text-gray-700">
-                <p className="ml-1 mr-1 text-blue-700 font-semibold py-1 border-transparent rounded">
+                <p className="ml-1 mr-1 text-blue-700 font-semibold py-1">
                   {likes()} Likes
                 </p>
                 {LikeButtonCheck()}
