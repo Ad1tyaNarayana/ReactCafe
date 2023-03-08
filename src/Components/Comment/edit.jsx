@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://cafereactapi.herokuapp.com/cafe",
+  baseURL: "https://cafereactserver.onrender.com/",
   headers: {
     "X-Auth-Token": window.sessionStorage.getItem("token"),
     "X-Auth-id": window.sessionStorage.getItem("userId"),
