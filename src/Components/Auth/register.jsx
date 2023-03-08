@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://cafereactapi.herokuapp.com/",
+  baseURL: "https://cafereactserver.onrender.com/",
 });
 
 export default class Cafe extends Component {
